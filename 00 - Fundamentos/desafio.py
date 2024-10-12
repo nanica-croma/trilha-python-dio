@@ -1,5 +1,7 @@
 menu = """
 
+[c] Criar Conta
+[e] Entrar
 [d] Depositar
 [s] Sacar
 [e] Extrato
@@ -7,6 +9,8 @@ menu = """
 
 => """
 
+nome = ""
+senha = ""
 saldo = 0
 limite = 500
 extrato = ""
@@ -16,8 +20,39 @@ LIMITE_SAQUES = 3
 while True:
 
     opcao = input(menu)
+    
+    if opcao == "c":
+       
+        nome = input("Digite o seu nome:")
 
-    if opcao == "d":
+        if nome == " ":
+            print("Nome inválido")
+            
+        else:
+            senha = input("Digite a sua senha:")
+            if senha == " ":
+                print("Senha inválida")
+
+            else:
+                print ("Conta criada com sucesso!")
+    
+    elif opcao == "e":
+
+            nome1 = input("Digite o seu nome:")
+
+            if nome1 == nome:
+                senha1 = input("Digite a sua senha:")
+
+                if senha1 == senha:
+                    print("\nBem vindo, você está logado!")
+
+                else:
+                    print("Senha inválida")
+                        
+            else:
+                print("Não existem registros com este nome!")
+
+    elif opcao == "d":
         valor = float(input("Informe o valor do depósito: "))
 
         if valor > 0:
