@@ -34,7 +34,10 @@ class Cliente:
 
     def realizar_transacao(self, conta, transacao):
         # TODO: validar o número de transações e invalidar a operação se for necessário
-        # print("\n@@@ Você excedeu o número de transações permitidas para hoje! @@@")
+        if len(conta.historico.transacoes_do_dia()) >= 11:
+            print("\n@@@ Você excedeu o número de transações permitidas para hoje! @@@")
+            return
+        
         transacao.registrar(conta)
 
     def adicionar_conta(self, conta):
